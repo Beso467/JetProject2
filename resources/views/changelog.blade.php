@@ -53,6 +53,8 @@
                         KNOWN ISSUES: <br/>
                         -Salaries dont update when changing working hours for adding a new project / for now added a note above the employee checkbox -admin
                     </li>
+                    <br/>
+                    
                     <li>Version 1.1.1 (current) - Added new features:
                         <br/>
                         -added new administration request for users
