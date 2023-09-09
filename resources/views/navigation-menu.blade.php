@@ -28,7 +28,7 @@
                         {{ __('Request Administration') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('changelog') }}" :active="request()->routeIs('changelog')">
-                        {{ __('Changelog') }}
+                        {{ __('Changelog 1.1.1') }}
                     </x-nav-link>
                 </div>
             </div>
