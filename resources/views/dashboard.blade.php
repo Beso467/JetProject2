@@ -73,8 +73,12 @@
                                 <td class="px-3 py-2 whitespace-nowrap text-sm">{{ $project->contract_status }}</td>
                                 <td class="px-3 py-2 whitespace-nowrap text-sm">{{ $project->total_price }}</td>
                                 <td class="px-3 py-2 whitespace-nowrap text-sm font-medium">
-                                    @if ($project->contract_status === 'completed')
-                                    {{ $project->completion_date }}
+                                @if ($project->contract_status === 'completed' && $project->completion_date <= $project->expected_time)
+                                <span class="text-green-500">{{ $project->completion_date }}</span>
+                                @elseif($project->contract_status === 'completed' && $project->completion_date > $project->expected_time)
+                                    <span class="text-red-500">{{ $project->completion_date }}</span>
+                                
+                               
                                 @else
                                     <a href="{{ route('show-update-status-form', ['id' => $project->id]) }}" class="btn btn-primary" style="background-color: #337ab7; color: #fff; font-size: 13px;">Edit Status</a>
                                 @endif
