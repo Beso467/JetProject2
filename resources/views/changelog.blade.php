@@ -39,7 +39,7 @@
                         -Design polishing and enhancement -user and admin
                     </li>
                     <br/>
-                    <li>Version 1.1 (current) - Added new features:
+                    <li>Version 1.1 - Added new features:
                         <br/>
                         -Upgraded performance -viewer and admin<br/>
                         -Now when adding a project the employee salaries are visible -admin<br/>
@@ -52,6 +52,11 @@
                         <br/>
                         KNOWN ISSUES: <br/>
                         -Salaries dont update when changing working hours for adding a new project / for now added a note above the employee checkbox -admin
+                    </li>
+                    <li>Version 1.1.1 (current) - Added new features:
+                        <br/>
+                        -added new administration request for users
+
                     </li>
                     <!-- Add more changelog items as needed -->
                 </ul>

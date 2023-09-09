@@ -24,6 +24,9 @@
                     <x-nav-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
                         {{ __('Add Employee') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('request-administration') }}" :active="request()->routeIs('request-administration')">
+                        {{ __('Request Administration') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('changelog') }}" :active="request()->routeIs('changelog')">
                         {{ __('Changelog') }}
                     </x-nav-link>

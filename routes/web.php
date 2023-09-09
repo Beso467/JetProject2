@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Middleware\CheckAdmin;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -33,6 +34,8 @@ Route::get('search-projects', [ProjectController::class, 'searchProjects'])->nam
 Route::get('/changelog', function () {
     return view('changelog');
 })->name('changelog');
+Route::get('/request-administration', [UserController::class, 'showRequestAdminForm'])->name('request-administration');
+
 
 });
 
