@@ -19,6 +19,7 @@
                             <button type="submit" class="btn btn-primary" style="background-color: #337ab7; color: #fff;">Search</button>
                         </form>
                     </div>
+                   
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -60,6 +61,11 @@
                         </style>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
+                        @if ($projects->isEmpty())
+                        <p>No results found</p>
+   
+                     
+                       @endif
                         @foreach ($projects as $project)
                             <tr>
                                 <td class="px-3 py-2 whitespace-nowrap text-sm">{{ $project->projectname }}</td>
