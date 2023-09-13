@@ -59,6 +59,14 @@
                         <br/>
                         -added new administration request for users
 
+
+                        --hotfix (1.1.1a)
+                        fixed login issues
+
+                        ---hotfix (1.1.1b)
+                        fixed search issues (finally)
+
+
                     </li>
                     <!-- Add more changelog items as needed -->
                 </ul>
