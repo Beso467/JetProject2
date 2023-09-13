@@ -126,6 +126,9 @@ class ProjectController extends Controller
     $projects = Project::where('projectname', 'like', '%' . $search . '%')
         ->orWhere('contract_status', 'like', '%' . $search . '%')
         ->orWhere('total_price', 'like', '%' . $search . '%')
+        ->orWhereHas('client', function ($query) use ($search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        })
         ->paginate(8);
 
     return view('dashboard', compact('projects'));
