@@ -25,6 +25,7 @@ class ProjectController extends Controller
         return view('projectform', compact('clients', 'employees'));
     }
     
+    
     public function form(Request $request)
     {
         $clients = Client::all();
