@@ -18,6 +18,7 @@ class Project extends Model
         'total_price',
         'logo_path',
         'completion_date',
+        'published',
     ];
     public function client()
     {

@@ -15,6 +15,7 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (auth()->check() && auth()->user()->is_admin)
                     <x-nav-link href="{{ route('add.project') }}" :active="request()->routeIs('add.project')">
                         {{ __('Add Project') }}
                     </x-nav-link>
@@ -24,11 +25,14 @@
                     <x-nav-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
                         {{ __('Add Employee') }}
                     </x-nav-link>
+                    @endif
+                    @if (!auth()->check() && auth()->user()->is_admin)
                     <x-nav-link href="{{ route('request-administration') }}" :active="request()->routeIs('request-administration')">
                         {{ __('Request Administration') }}
                     </x-nav-link>
+                    @endif
                     <x-nav-link href="{{ route('changelog') }}" :active="request()->routeIs('changelog')">
-                        {{ __('Changelog 1.1.1B') }}
+                        {{ __('Changelog 1.1.2') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -105,6 +109,25 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            @if (auth()->check() && auth()->user()->is_admin)
+            <x-responsive-nav-link href="{{ route('add.project') }}" :active="request()->routeIs('add.project')">
+                {{ __('Add Project') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('client.create') }}" :active="request()->routeIs('client.create')">
+                {{ __('Add Client') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
+                {{ __('Add Employee') }}
+            </x-responsive-nav-link>
+            @endif
+            @if (!auth()->check() && auth()->user()->is_admin)
+            <x-responsive-nav-link href="{{ route('request-administration') }}" :active="request()->routeIs('request-administration')">
+                {{ __('Request Administration') }}
+            </x-responsive-nav-link>
+            @endif
+            <x-responsive-nav-link href="{{ route('changelog') }}" :active="request()->routeIs('changelog')">
+                {{ __('Changelog 1.1.2') }}
             </x-responsive-nav-link>
         </div>
 

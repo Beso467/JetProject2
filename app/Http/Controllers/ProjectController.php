@@ -117,9 +117,16 @@ class ProjectController extends Controller
 
     public function viewProjects()
     {
-        $projects = Project::all();
-        $projects = Project::paginate(8);
+        if(auth()->check() && auth()->user()->is_admin){
+            $projects = Project::all();
+            $projects = Project::paginate(8);
+            
+        }
+        else {
+            $projects = Project::where('published', true)->paginate(8);
+        }
         return view('dashboard', compact('projects'));
+        
     }
     public function searchProjects(Request $request)
 {
@@ -133,6 +140,13 @@ class ProjectController extends Controller
         ->paginate(8);
 
     return view('dashboard', compact('projects'));
+}
+public function updatePublish($id)
+{
+    $project = Project::findOrFail($id);
+    $project->update(['published' => !$project->published]);
+
+    return redirect()->back()->with('success', 'Project publish status updated successfully.');
 }
     
 public function updateStatus(Request $request, $id)

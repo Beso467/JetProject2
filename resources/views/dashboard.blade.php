@@ -19,7 +19,7 @@
                             <button type="submit" class="btn btn-primary" style="background-color: #337ab7; color: #fff;">Search</button>
                         </form>
                     </div>
-                   
+                    <div class="table-responsive overflow-x-auto">  
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -49,13 +49,17 @@
                             </th>
                            
                             <th scope="col" class="px-3 py-2 text-left text-xs font-small text-gray-500 uppercase tracking-wider">
-                                    Actions\
-                                    Completion Date   
+                               @if (auth()->check() && auth()->user()->is_admin) 
+                            Actions\
+                            Completion Date   
+                            @else
+                            Completion Date
+                            @endif
                             </th>
                         </tr>
                         <style>
                             .text-custom-sm {
-                                font-size: 0.80rem; /* for date values */
+                                font-size: 0.80rem;
                                 font-weight: semibold;
                             }
                         </style>
@@ -83,19 +87,32 @@
                                 <span class="text-green-500">{{ $project->completion_date }}</span>
                                 @elseif($project->contract_status === 'completed' && $project->completion_date > $project->expected_time)
                                     <span class="text-red-500">{{ $project->completion_date }}</span>
-                                
-                               
-                                @else
+                                @elseif (auth()->check() && auth()->user()->is_admin)
                                     <a href="{{ route('show-update-status-form', ['id' => $project->id]) }}" class="btn btn-primary" style="background-color: #337ab7; color: #fff; font-size: 13px;">Edit Status</a>
-                                @endif
-                                </td>
+                                    @else
+                                    <p>This project is not completed</p>
+                                    @endif
+                                </td>                         
                                 <td class="px-3 py-2 whitespace-nowrap">
                                     <a href="{{ route('project.employees', ['project' => $project->id]) }}" class="btn btn-primary text-xs" style="background-color: #337ab7; color: #fff; font-size: 13px;">View Employees</a>
                                 </td>
+                               @if(auth()->check() && auth()->user()->is_admin)
+                                <td class="px-3 py-2 whitespace-nowrap text-sm">
+                                    <form action="{{ route('update-publish', ['id' => $project->id]) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-primary text-xs py-1 px-2" style="background-color: #337ab7; color: #fff;">
+                                            {{ $project->published ? 'Unpublish' : 'Publish' }}
+                                        </button>                                        
+                                    </form>                                    
+                                </td>
+                                @endif
+                               
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                    </div>
                 {{ $projects->links() }}
             </div>
         </div>

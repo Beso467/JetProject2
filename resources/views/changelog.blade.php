@@ -55,7 +55,7 @@
                     </li>
                     <br/>
                     
-                    <li>Version 1.1.1 (current) - Added new features:
+                    <li>Version 1.1.1 - Added new features:
                         <br/>
                         -added new administration request for users
 
@@ -67,6 +67,18 @@
                         fixed search issues (finally)
 
 
+                    </li>
+                    <br>
+                    <li>Version 1.1.2 (current) - Added new features:
+                        <br>
+                        -Admin and User QOL changes: responsive improvements for small screens - new colors for completed date where <span style="color: red">RED</span> = late and <span style="color:lightgreen">GREEN</span> = ontime/early<br>
+                          
+                        -NEW publish/unpublish button feature for admins for more control over the projects<br/>
+                        -Performance upgrades<br/>
+                        -dashboard improvements and simplification<br/>
+                        <br>
+                        KNOWN ISSUES:<br>
+                        on super small screens the full top menu does not appear this will be hotfixed soon - this has been hotfixed in patch 1.1.2a (current)
                     </li>
                     <!-- Add more changelog items as needed -->
                 </ul>

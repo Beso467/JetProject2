@@ -51,6 +51,8 @@ Route::post('/store-project', [ProjectController::class, 'store'])->name('store-
 Route::get('update-status/{id}', [ProjectController::class, 'showUpdateStatusForm'])->name('show-update-status-form');
 Route::patch('update-status/{id}', [ProjectController::class, 'updateStatus'])->name('update-status');
 Route::get('/search-employees', [ProjectController::class, 'searchEmployees'])->name('search-employees');
+Route::put('/projects/{id}/update-publish', [ProjectController::class, 'updatePublish'])->name('update-publish');
+
 });
 
 
