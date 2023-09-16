@@ -10,22 +10,7 @@ use App\Models\Employee;
 
 class ProjectController extends Controller
 {
-    public function searchEmployees(Request $request)
-    {
-        $clients = Client::all();
-        $employees = Employee::query();
-    
-        $search = $request->input('search');
-        if ($search) {
-            $employees->where('employee_name', 'like', '%' . $search . '%');
-        }
-    
-        $employees = $employees->get();
-    
-        return view('projectform', compact('clients', 'employees'));
-    }
-    
-    
+
     public function form(Request $request)
     {
         $clients = Client::all();

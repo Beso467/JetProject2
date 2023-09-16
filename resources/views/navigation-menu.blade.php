@@ -11,31 +11,59 @@
                 </div>
             
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    @if (auth()->check() && auth()->user()->is_admin)
-                    <x-nav-link href="{{ route('add.project') }}" :active="request()->routeIs('add.project')">
-                        {{ __('Add Project') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('client.create') }}" :active="request()->routeIs('client.create')">
-                        {{ __('Add Client') }}
-                    </x-nav-link>
-                    <x-nav-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
-                        {{ __('Add Employee') }}
-                    </x-nav-link>
-                    @endif
-                    @if (!auth()->check() && auth()->user()->is_admin)
-                    <x-nav-link href="{{ route('request-administration') }}" :active="request()->routeIs('request-administration')">
-                        {{ __('Request Administration') }}
-                    </x-nav-link>
-                    @endif
-                    <x-nav-link href="{{ route('changelog') }}" :active="request()->routeIs('changelog')">
-                        {{ __('Changelog 1.1.2') }}
-                    </x-nav-link>
-                </div>
-            </div>
+<!-- Navigation Links -->
+<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex items-center">
+    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+        {{ __('Dashboard') }}
+    </x-nav-link>
+    <x-dropdown>
+        <x-slot name="trigger">
+            <button type="button" class="flex items-center px-3 py-2 rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                {{ __('View') }}
+            </button>
+        </x-slot>
+        <x-slot name="content">
+            <x-dropdown-link href="{{ route('employee.list') }}" :active="request()->routeIs('employee.list')">
+                {{ __('Employees') }}
+            </x-dropdown-link>
+            <x-dropdown-link href="{{ route('client.list') }}" :active="request()->routeIs('client.list')">
+                {{ __('Clients') }}
+            </x-dropdown-link>
+        </x-slot>
+    </x-dropdown>
+    @if (auth()->check() && auth()->user()->is_admin)
+    <!-- Add Dropdown Menu -->
+    <x-dropdown>
+        <x-slot name="trigger">
+            <button type="button" class="flex items-center px-3 py-2 rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                {{ __('Add') }}
+            </button>
+        </x-slot>
+        <x-slot name="content">
+            <x-dropdown-link href="{{ route('add.project') }}" :active="request()->routeIs('add.project')">
+                {{ __('Add Project') }}
+            </x-dropdown-link>
+            <x-dropdown-link href="{{ route('client.create') }}" :active="request()->routeIs('client.create')">
+                {{ __('Add Client') }}
+            </x-dropdown-link>
+            <x-dropdown-link href="{{ route('employee.create') }}" :active="request()->routeIs('employee.create')">
+                {{ __('Add Employee') }}
+            </x-dropdown-link>
+        </x-slot>
+    </x-dropdown>
+    @endif
+
+    @if (!auth()->check() && auth()->user()->is_admin)
+    <x-nav-link href="{{ route('request-administration') }}" :active="request()->routeIs('request-administration')">
+        {{ __('Request Administration') }}
+    </x-nav-link>
+    @endif
+
+    <x-nav-link href="{{ route('changelog') }}" :active="request()->routeIs('changelog')">
+        {{ __('Changelog 1.2') }}
+    </x-nav-link>
+</div>
+
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
 
@@ -110,6 +138,12 @@
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('client.list') }}" :active="request()->routeIs('client.list')">
+                {{ __('Clients') }}
+            </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('employee.list') }}" :active="request()->routeIs('employee.list')">
+                    {{ __('Employees') }}
+            </x-responsive-nav-link>
             @if (auth()->check() && auth()->user()->is_admin)
             <x-responsive-nav-link href="{{ route('add.project') }}" :active="request()->routeIs('add.project')">
                 {{ __('Add Project') }}
@@ -121,13 +155,14 @@
                 {{ __('Add Employee') }}
             </x-responsive-nav-link>
             @endif
+           
             @if (!auth()->check() && auth()->user()->is_admin)
             <x-responsive-nav-link href="{{ route('request-administration') }}" :active="request()->routeIs('request-administration')">
                 {{ __('Request Administration') }}
             </x-responsive-nav-link>
             @endif
             <x-responsive-nav-link href="{{ route('changelog') }}" :active="request()->routeIs('changelog')">
-                {{ __('Changelog 1.1.2') }}
+                {{ __('Changelog 1.2') }}
             </x-responsive-nav-link>
         </div>
 

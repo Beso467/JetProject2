@@ -30,12 +30,15 @@ Route::middleware([
 ])->group(function () {
 Route::get('/dashboard', [ProjectController::class, 'viewProjects'])->name('dashboard');
 Route::get('/projects/{project}/employees', [ProjectController::class, 'showProjectEmployees'])->name('project.employees');
+Route::get('search-employees', [EmployeeController::class, 'searchEmployees'])->name('search-employees');
+Route::get('search-clients', [ClientController::class, 'searchClients'])->name('search-clients');
 Route::get('search-projects', [ProjectController::class, 'searchProjects'])->name('search-projects');
 Route::get('/changelog', function () {
     return view('changelog');
 })->name('changelog');
 Route::get('/request-administration', [UserController::class, 'showRequestAdminForm'])->name('request-administration');
-
+Route::get('/client-list', [ClientController::class, 'showClients'])->name('client.list');
+Route::get('/employee-list', [EmployeeController::class, 'showEmployees'])->name('employee.list');
 
 });
 
@@ -50,7 +53,6 @@ Route::post('/add-employees', [EmployeeController::class, 'store'])->name('emplo
 Route::post('/store-project', [ProjectController::class, 'store'])->name('store-project');
 Route::get('update-status/{id}', [ProjectController::class, 'showUpdateStatusForm'])->name('show-update-status-form');
 Route::patch('update-status/{id}', [ProjectController::class, 'updateStatus'])->name('update-status');
-Route::get('/search-employees', [ProjectController::class, 'searchEmployees'])->name('search-employees');
 Route::put('/projects/{id}/update-publish', [ProjectController::class, 'updatePublish'])->name('update-publish');
 
 });

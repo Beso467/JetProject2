@@ -28,5 +28,25 @@ class EmployeeController extends Controller
 
         return redirect()->route('employee.create')->with('success', 'Employee Added!');
     }
+    public function showEmployees()
+    {
+        $employees = Employee::all();
+        $employees = Employee::paginate(8);
+    
+        return view('employees', compact('employees'));
+    }
+    public function searchEmployees(Request $request)
+    {
+        $search = $request->query('search');
+        $employees = Employee::where('employee_name', 'like', '%' . $search . '%')
+            ->orWhere('employee_email', 'like', '%' . $search . '%');
+            
+            if (!empty($search)) {
+                $employees->orWhere('employee_salary', '<=', $search);
+            }
+        
+            $employees = $employees->paginate(8);
+        return view('employees', compact('employees'));
+    }
 }
 
