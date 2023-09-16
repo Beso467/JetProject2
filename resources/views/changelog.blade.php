@@ -22,6 +22,7 @@
                             <strong>KNOWN ISSUES:</strong>
                             <ul class="list-disc pl-5">
                                 <li>The Employee list doesn't show part-time salaries, added a note as a temporary fix</li>
+                                <li>Minor visual glitches on the navigation bar this will be fixed in a later hotfix</li>
                             </ul>
                         </li>
                         
