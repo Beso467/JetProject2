@@ -11,7 +11,19 @@
                 <!-- Add your changelog content here -->
                 <div class="changelog-container">
                     <ul class="list-disc pl-5">
-                        <li>Version 1.2.0 (current) - Added new features:
+                        <li> <strong>Version 1.2.1a (current) - Added new features:</strong>
+                            <ul class="list-disc pl-5">
+                                <li>Added "Download pdf" option for dashboard will add them for other pages "soon TM"</li>
+                            </ul>
+                            <br/>
+                            <strong>KNOWN ISSUES:</strong>
+                            <ul class="list-disc pl-5">
+                                <li>PDF view is not the same as the normal dashboard to save loadtime this is intentional</li>
+                                <li>The Employee list doesn't show part-time salaries, added a note as a temporary fix</li>
+                                <li>Minor visual glitches on the navigation bar this will be fixed in a later hotfix</li>
+                            </ul>
+                            <br>
+                        <li>Version 1.2.0 - Added new features:
                             <ul class="list-disc pl-5">
                                 <li>Upgraded and cleaned up the navigation bar.</li>
                                 <li>Cleaned up code and bug fixes.</li>
