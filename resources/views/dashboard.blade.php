@@ -1,13 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            Dashboard
         </h2>
+        <a href="{{ route('pdf.download') }}">Download list as PDF</a>
     </x-slot>
     <br/> 
     <div class="py-12, font-size: 10px">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+             
                     <div class="mb-4">
                         @if(session('error'))
                         <div class="alert alert-danger">

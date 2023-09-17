@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\Project;
 use App\Models\client;
 use App\Models\Employee;
+use PDF;
 
 class ProjectController extends Controller
 {
@@ -167,6 +168,7 @@ public function updateStatus(Request $request, $id)
 
 
 
+
     
 
 public function showUpdateStatusForm($id)
@@ -178,6 +180,24 @@ public function showUpdateStatusForm($id)
     return view('update-status', compact('project', 'statuses'));
 }
 
+public function generateHtmlToPDF()
+{
+    
+    $projects = Project::all();
+    $projects = Project::paginate(20);
 
+    
+    $data = [
+        'projects' => $projects,
+    ];
+
+    
+    $html = view('pdf-dashboard', $data)->render();
+
+    
+    $pdf = PDF::loadHTML($html);
+
+    return $pdf->download('dashboard.pdf');
+}
     
 }

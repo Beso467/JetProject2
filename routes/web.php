@@ -39,6 +39,7 @@ Route::get('/changelog', function () {
 Route::get('/request-administration', [UserController::class, 'showRequestAdminForm'])->name('request-administration');
 Route::get('/client-list', [ClientController::class, 'showClients'])->name('client.list');
 Route::get('/employee-list', [EmployeeController::class, 'showEmployees'])->name('employee.list');
+Route::get('/generate-pdf', [ProjectController::class, 'generateHtmlToPDF'])->name('pdf.download');
 
 });
 
