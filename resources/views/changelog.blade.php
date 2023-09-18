@@ -20,6 +20,7 @@
                             <br/>
                             <strong>KNOWN ISSUES:</strong>
                             <ul class="list-disc pl-5">
+                                <li>Salaries dont update when changing working hours for adding a new project / for now added a note above the employee checkbox</li>
                                 <li>PDF view is not the same as the normal dashboard to save loadtime this is intentional</li>
                                 <li>The Employee list doesn't show part-time salaries, added a note as a temporary fix</li>
                                 <li>Minor visual glitches on the navigation bar</li>
