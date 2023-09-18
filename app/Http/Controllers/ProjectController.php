@@ -8,6 +8,8 @@ use App\Models\Project;
 use App\Models\client;
 use App\Models\Employee;
 use PDF;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -52,10 +54,18 @@ class ProjectController extends Controller
         return redirect()->back()->with('warning', 'Warning: Total employee salaries exceed the contract price.');
     }
 
-        $logoPath = null;
-        if ($request->hasFile('logo')) {
-            $logoPath = $request->file('logo')->store('logos', 'public');
-        }
+    $logoPath = null;
+    if ($request->hasFile('logo')) {
+        $uploadedLogo = $request->file('logo');
+        $extension = 'webp'; // Force extension to be 'webp'
+        $randomName = Str::random(10); // Generate a random name for the image, e.g., 10 characters long
+        $logoPath = $uploadedLogo->storeAs('logos', $randomName . '.' . $extension, 'public');
+    
+        // Compress the uploaded image
+        $image = Image::make(storage_path("app/public/{$logoPath}"));
+        $image->encode($extension, 30); // Compress as WebP with 80% quality (adjust as needed)
+        $image->save(storage_path("app/public/{$logoPath}")); // Overwrite the original image
+    }
         
        $project = Project::create([
             'projectname' => $request->input('projectname'),
@@ -64,10 +74,7 @@ class ProjectController extends Controller
             'contract_price' => $request->input('contract_price'),
             'contract_status' => $request->input('contract_status'),
             'expected_time' => $request->input('expected_time'),
-            'logo_path' => $logoPath, 
-          
-            
-
+            'logo_path' => $logoPath,
         ]);
        
     $selectedEmployees = $request->input('selected_employees', []);
@@ -182,22 +189,23 @@ public function showUpdateStatusForm($id)
 
 public function generateHtmlToPDF()
 {
-    
+    // Fetch your project data
     $projects = Project::all();
-    $projects = Project::paginate(20);
 
-    
+    // Pass the data to your view
     $data = [
         'projects' => $projects,
     ];
 
-    
-    $html = view('pdf-dashboard', $data)->render();
+    // Create a PDF instance
+    $pdf = PDF::loadHTML(view('pdf-dashboard', $data)->render());
+    $papersize = array(0,0,280,430);
+    // Set the custom paper size
+    $pdf->setPaper($papersize);
 
-    
-    $pdf = PDF::loadHTML($html);
-
+    // Download the PDF
     return $pdf->download('dashboard.pdf');
 }
+
     
 }

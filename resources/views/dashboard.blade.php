@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Dashboard
         </h2>
-        <a href="{{ route('pdf.download') }}">Download list as PDF</a>
+        <a href="{{ route('pdf.download') }}">Download list as PDF (BETA)</a>
     </x-slot>
     <br/> 
     <div class="py-12, font-size: 10px">

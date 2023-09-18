@@ -11,6 +11,21 @@
                 <!-- Add your changelog content here -->
                 <div class="changelog-container">
                     <ul class="list-disc pl-5">
+                        <li> <strong>Version 1.2.1b (current) - Added new adjustments:</strong>
+                            <ul class="list-disc pl-5">
+                                <li>More PDF testing added project logos</li>
+                                <li>Code cleanups</li>
+                                <li>Added BETA on the PDF link for clarity</li>
+                            </ul>
+                            <br/>
+                            <strong>KNOWN ISSUES:</strong>
+                            <ul class="list-disc pl-5">
+                                <li>PDF view is not the same as the normal dashboard to save loadtime this is intentional</li>
+                                <li>The Employee list doesn't show part-time salaries, added a note as a temporary fix</li>
+                                <li>Minor visual glitches on the navigation bar</li>
+                                <li>The loadtime required for PDF download link is slow</li>
+                            </ul>
+                            <br>
                         <li> <strong>Version 1.2.1a (current) - Added new features:</strong>
                             <ul class="list-disc pl-5">
                                 <li>Added "Download pdf" option for dashboard will add them for other pages "soon TM"</li>
