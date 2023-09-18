@@ -13,7 +13,7 @@
                     <ul class="list-disc pl-5">
                         <li> <strong>Version 1.2.1b (current) - Added new adjustments:</strong>
                             <ul class="list-disc pl-5">
-                                <li>More PDF testing added project logos</li>
+                                <li>More PDF testing added project logos and changed paper size</li>
                                 <li>Code cleanups</li>
                                 <li>Added BETA on the PDF link for clarity</li>
                             </ul>
