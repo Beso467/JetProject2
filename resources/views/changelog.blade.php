@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Changelog 1.2</title>
+</head>
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -20,6 +29,7 @@
                             <br/>
                             <strong>KNOWN ISSUES:</strong>
                             <ul class="list-disc pl-5">
+                                <li>PDF file shows unpublished projects (oops)</li>
                                 <li>Salaries dont update when changing working hours for adding a new project / for now added a note above the employee checkbox</li>
                                 <li>PDF view is not the same as the normal dashboard to save loadtime this is intentional</li>
                                 <li>The Employee list doesn't show part-time salaries, added a note as a temporary fix</li>
@@ -27,7 +37,7 @@
                                 <li>The loadtime required for PDF download link is slow</li>
                             </ul>
                             <br>
-                        <li> <strong>Version 1.2.1a (current) - Added new features:</strong>
+                        <li> Version 1.2.1a - Added new features:
                             <ul class="list-disc pl-5">
                                 <li>Added "Download pdf" option for dashboard will add them for other pages "soon TM"</li>
                             </ul>
@@ -133,3 +143,4 @@
         padding-right: 20px; /* Add space for scrollbar to prevent content from shifting */
     }
 </style>
+</html>
