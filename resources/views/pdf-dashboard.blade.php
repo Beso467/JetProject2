@@ -20,6 +20,7 @@
 </head>
 <body>
     @foreach ($projects as $project)
+       @if ($project->published)
     
         <div class="list-item" style="page-break-after: always">
             <img src="{{  public_path('storage/' . $project->logo_path) }}" height="100px" width="100px" alt="{{ $project->name }} Logo">
@@ -40,6 +41,7 @@
                 @endif
             </p>
         </div>
+        @endif
     @endforeach
 </body>
 </html>
