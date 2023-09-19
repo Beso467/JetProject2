@@ -48,5 +48,15 @@ class EmployeeController extends Controller
             $employees = $employees->paginate(8);
         return view('employees', compact('employees'));
     }
+
+public function destroy($delete){
+
+    $data = Employee::find($delete); 
+    $data->delete();
+  
+   return redirect()->route('employee.list')
+                    ->with('success','deleted successfully!');
+  }
+
 }
 

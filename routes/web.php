@@ -56,6 +56,7 @@ Route::get('update-status/{id}', [ProjectController::class, 'showUpdateStatusFor
 Route::patch('update-status/{id}', [ProjectController::class, 'updateStatus'])->name('update-status');
 Route::put('/projects/{id}/update-publish', [ProjectController::class, 'updatePublish'])->name('update-publish');
 Route::post('update-all-projects', [ProjectController::class, 'updateAllProjects'])->name('update-all-projects');
+Route::get('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
 
 });
 

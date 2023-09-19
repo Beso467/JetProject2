@@ -20,12 +20,30 @@
                 <!-- Add your changelog content here -->
                 <div class="changelog-container">
                     <ul class="list-disc pl-5">
-                        <li> <strong>Version 1.2.2a (current) - Added new features:</strong>
+                        <li> <strong>Version 1.2.2b (current) - Added new features and adjustments:</strong>
+                            <ul class="list-disc pl-5">
+                                <li>Fixed a bug causing normal users to not be able to log in</li>
+                                <li>NEW delete button for employees on admin dashboards</li>
+                                <li>Hid salaries for employees - normal users</li>
+                                <li>code cleanup and visual adjustments to the dashboard</li>
+                            </ul>
+                            <br/>
+                            <strong>KNOWN ISSUES:</strong>
+                            <ul class="list-disc pl-5">
+                                <li>Salaries dont update when changing working hours for adding a new project / for now added a note above the employee checkbox</li>
+                                <li>PDF view is not the same as the normal dashboard to save loadtime this is intentional</li>
+                                <li>The Employee list doesn't show part-time salaries for admins, added a note as a temporary fix</li>
+                                <li>Minor visual glitches on the navigation bar-did some adjustments this patch</li>
+                                <li>The loadtime required for PDF download link is slow-did some adjustments this patch</li>
+                            </ul>
+                    <ul class="list-disc pl-5">
+                        <br>
+                        <li> Version 1.2.2a - Added new features:
                             <ul class="list-disc pl-5">
                                 <li>Veiw Optimizations and upgrades for: client list/ employee list 
                                     as well as add pages for admins</li>
-                                <li>NEW publish all button</li>
-                                <li>Now the dashboard shows total published projects</li>
+                                <li>NEW publish all button for admins</li>
+                                <li>Now the dashboard shows total published projects for admins</li>
                                 <li>NEW view employees list on the dashboard table</li>
                             </ul>
                             <br/>
