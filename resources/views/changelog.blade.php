@@ -20,9 +20,27 @@
                 <!-- Add your changelog content here -->
                 <div class="changelog-container">
                     <ul class="list-disc pl-5">
-                        <li> <strong>Version 1.2.1b (current) - Added new adjustments:</strong>
+                        <li> <strong>Version 1.2.2a (current) - Added new features:</strong>
                             <ul class="list-disc pl-5">
-                                <li>More PDF testing added project logos and changed paper size</li>
+                                <li>Veiw Optimizations and upgrades for: client list/ employee list 
+                                    as well as add pages for admins</li>
+                                <li>NEW publish all button</li>
+                                <li>Now the dashboard shows total published projects</li>
+                                <li>NEW view employees list on the dashboard table</li>
+                            </ul>
+                            <br/>
+                            <strong>KNOWN ISSUES:</strong>
+                            <ul class="list-disc pl-5">
+                                <li>Salaries dont update when changing working hours for adding a new project / for now added a note above the employee checkbox</li>
+                                <li>PDF view is not the same as the normal dashboard to save loadtime this is intentional</li>
+                                <li>The Employee list doesn't show part-time salaries, added a note as a temporary fix</li>
+                                <li>Minor visual glitches on the navigation bar</li>
+                                <li>The loadtime required for PDF download link is slow</li>
+                            </ul>
+                            <br>
+                        <li>Version 1.2.1b - Added new adjustments:
+                            <ul class="list-disc pl-5">
+                                <li>More PDF testing, added project logos and changed paper size</li>
                                 <li>Code cleanups</li>
                                 <li>Added BETA on the PDF link for clarity</li>
                             </ul>

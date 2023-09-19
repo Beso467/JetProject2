@@ -19,15 +19,20 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
              
                     <div class="mb-4">
+                        @if(session('success'))
+                            <div class="mt-3 text-green-500">{{ session('success') }}</div>
+                            @endif 
                         @if(session('error'))
                         <div class="alert alert-danger">
                             {{ session('error') }}
                         </div>
                     @endif
+                    <br>
                         <form action="{{ route('search-projects') }}" method="GET" class="flex items-center">
                             <input type="text" class="form-input rounded-md shadow-sm mr-2" name="search" id="search" value="{{ request('search') }}" placeholder="Search projects...">
                             <button type="submit" class="btn btn-primary" style="background-color: #337ab7; color: #fff;">Search</button>
                         </form>
+                        
                     </div>
                     <div class="table-responsive overflow-x-auto">  
                 <table class="min-w-full divide-y divide-gray-200">
@@ -65,6 +70,20 @@
                             @else
                             Completion Date
                             @endif
+                            </th>
+                            <th scope="col" class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <form action="{{ route('employee.list') }}" method="GET" class="flex items-center">
+                                <button class="btn px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style="background-color: #cccccc33; border-style: solid;">View All Employees</button>
+                                </form>
+                            </th>
+                            <p class="px-3 py-2 text-center font-medium text-gray-500 uppercase tracking-wider">PUBLISHED PROJECTS {{ $publishedProjectsCount }}/{{ $totalProjectsCount }}</p>
+                            <th scope="col" class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                
+
+                                <form action="{{ route('update-all-projects') }}" method="POST" class="flex items-center">
+                                    @csrf
+                                    <button class="btn px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" style="background-color: #cccccc33; border-style: solid;">Publish All</button>
+                                    </form>
                             </th>
                         </tr>
                         <style>

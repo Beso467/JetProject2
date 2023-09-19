@@ -113,26 +113,46 @@ class ProjectController extends Controller
         if(auth()->check() && auth()->user()->is_admin){
             $projects = Project::all();
             $projects = Project::paginate(8);
+            $publishedProjectsCount = Project::where('published', 1)->count();
+            $totalProjectsCount = Project::count();
             
+            return view('dashboard', compact('projects', 'publishedProjectsCount', 'totalProjectsCount'));
         }
         else {
             $projects = Project::where('published', true)->paginate(8);
+
+            return view('dashboard', compact('projects'));
         }
-        return view('dashboard', compact('projects'));
-        
+       
     }
     public function searchProjects(Request $request)
 {
-    $search = $request->query('search');
-    $projects = Project::where('projectname', 'like', '%' . $search . '%')
+    if(auth()->check() && auth()->user()->is_admin){
+        $publishedProjectsCount = Project::where('published', 1)->count();
+        $totalProjectsCount = Project::count();
+        $search = $request->query('search');
+        $projects = Project::where('projectname', 'like', '%' . $search . '%')
         ->orWhere('contract_status', 'like', '%' . $search . '%')
         ->orWhere('total_price', 'like', '%' . $search . '%')
         ->orWhereHas('client', function ($query) use ($search) {
             $query->where('name', 'like', '%' . $search . '%');
         })
         ->paginate(8);
+        return view('dashboard', compact('projects', 'publishedProjectsCount', 'totalProjectsCount'));
+    } else {
+        $search = $request->query('search');
+        $projects = Project::where('projectname', 'like', '%' . $search . '%')
+            ->orWhere('contract_status', 'like', '%' . $search . '%')
+            ->orWhere('total_price', 'like', '%' . $search . '%')
+            ->orWhereHas('client', function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->paginate(8);
 
-    return view('dashboard', compact('projects'));
+            return view('dashboard', compact('projects'));
+    }
+
+    
 }
 public function updatePublish($id)
 {
@@ -205,6 +225,14 @@ public function generateHtmlToPDF()
 
     // Download the PDF
     return $pdf->download('dashboard.pdf');
+}
+
+public function updateALLProjects(Request $request)
+{
+    Project::query()->update(['published' => 1]);
+    return redirect()->back()->with('success', 'All projects have been published.');
+
+
 }
 
     

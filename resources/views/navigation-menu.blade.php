@@ -36,7 +36,7 @@
     <x-dropdown>
         <x-slot name="trigger">
             <button type="button" class="flex items-center px-3 py-2 rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
-                {{ __('Add') }}
+                {{ __('Add') }} 
             </button>
         </x-slot>
         <x-slot name="content">
