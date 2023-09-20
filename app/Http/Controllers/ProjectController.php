@@ -51,7 +51,9 @@ class ProjectController extends Controller
     $contractPrice = $request->input('contract_price');
 
     if ($totalSalaries > $contractPrice) {
-        return redirect()->back()->with('warning', 'Warning: Total employee salaries exceed the contract price.');
+        return redirect()
+               ->back()
+               ->with('warning', 'Warning: Total employee salaries exceed the contract price.');
     }
 
     $logoPath = null;
@@ -85,11 +87,6 @@ class ProjectController extends Controller
         $workingHour = isset($workingHours[$employeeId]) ? $workingHours[$employeeId] : null;
         $project->employees()->attach($employeeId, ['working_hours' => $workingHour]);
     }
-
-    
-
-       
-
         return redirect()->Route('add.project')->with('success', 'Project added successfully!');
 
 
@@ -148,7 +145,6 @@ class ProjectController extends Controller
                 $query->where('name', 'like', '%' . $search . '%');
             })
             ->paginate(8);
-
             return view('dashboard', compact('projects'));
     }
 
@@ -193,11 +189,6 @@ public function updateStatus(Request $request, $id)
     }
 }
 
-
-
-
-    
-
 public function showUpdateStatusForm($id)
 {
     $project = Project::findOrFail($id);
@@ -209,21 +200,21 @@ public function showUpdateStatusForm($id)
 
 public function generateHtmlToPDF()
 {
-    // Fetch your project data
+    
     $projects = Project::all();
 
-    // Pass the data to your view
+    
     $data = [
         'projects' => $projects,
     ];
 
-    // Create a PDF instance
+    
     $pdf = PDF::loadHTML(view('pdf-dashboard', $data)->render());
     $papersize = array(0,0,280,430);
-    // Set the custom paper size
+    
     $pdf->setPaper($papersize);
 
-    // Download the PDF
+
     return $pdf->download('dashboard.pdf');
 }
 
@@ -231,9 +222,6 @@ public function updateALLProjects(Request $request)
 {
     Project::query()->update(['published' => 1]);
     return redirect()->back()->with('success', 'All projects have been published.');
-
-
 }
-
-    
+   
 }

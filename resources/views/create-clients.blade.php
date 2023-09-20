@@ -15,7 +15,7 @@
         </h2>
     </x-slot>  
    
-    <div class="py-12">
+    <div class="py-3">
         <div class="container mx-auto">
             <div class="bg-gray overflow-hidden sm:rounded-lg p-6">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 max-w-lg mx-auto">
@@ -24,11 +24,11 @@
             @csrf
             <div class="form-group">
                 <label for="name">Client Name:</label>
-                <input type="text" class="form-input rounded-md shadow-sm mt-1 block w-full max-w-xs" name="name" id="name" required>
+                <input type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" name="name" id="name" required>
             </div>
             <div class="form-group">
                 <label for="number">Client Phone Number:</label>
-                <input type="number" class="form-input rounded-md shadow-sm mt-1 block w-full max-w-xs" name="number" id="number" required>
+                <input type="number" class="form-input rounded-md shadow-sm mt-1 block w-full" name="number" id="number" required>
             </div>
             <label for="profile_picture_path">Profile Picture:</label>
     <input type="file" class="form-control-file" name="profile_picture_path" id="profile_picture_path">

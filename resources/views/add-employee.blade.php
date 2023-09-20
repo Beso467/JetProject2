@@ -16,7 +16,7 @@
     </x-slot>
 
 
-    <div class="py-12">
+    <div class="py-3">
         <div class="container mx-auto">
             <div class="bg-gray overflow-hidden sm:rounded-lg p-6">
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 max-w-lg mx-auto">
@@ -24,15 +24,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Employee Name:</label>
-                    <input type="text" class="form-input rounded-md shadow-sm mt-1 block w-full max-w-xs" name="employee_name" id="employee_name" required>
+                    <input type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" name="employee_name" id="employee_name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Employee Email:</label>
-                    <input type="email" class="form-input rounded-md shadow-sm mt-1 block w-full max-w-xs" name="employee_email" id="employee_email" required>
+                    <input type="email" class="form-input rounded-md shadow-sm mt-1 block w-full " name="employee_email" id="employee_email" required>
                 </div>
                 <div class="form-group">
                     <label for="salary">Employee Salary:</label>
-                    <input type="number" class="form-input rounded-md shadow-sm mt-1 block w-full max-w-xs" name="employee_salary" id="employee_salary" required>
+                    <input type="number" class="form-input rounded-md shadow-sm mt-1 block w-full " name="employee_salary" id="employee_salary" required>
                 </div>
                 <button type="submit" class="btn btn-primary" style="background-color: #337ab7; color: #fff;">Add Employee</button>
             </form>

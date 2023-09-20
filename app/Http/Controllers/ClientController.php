@@ -30,6 +30,7 @@ class ClientController extends Controller
         ]);
         return redirect()->route('client.create')->with('success', 'Client Added!');
     }
+    
     public function showClients()
     {
         $clients = Client::all();
@@ -37,12 +38,13 @@ class ClientController extends Controller
     
         return view('clients', compact('clients'));
     }
+
     public function searchClients(Request $request)
-{
+  {
     $search = $request->query('search');
     $clients = Client::where('name', 'like', '%' . $search . '%')
         ->orWhere('number', 'like', '%' . $search . '%');
     return view('clients', compact('clients'));
-}
+  }
    
 }
